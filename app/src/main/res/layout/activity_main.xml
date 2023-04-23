@@ -6,13 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/main_logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintBottom_toTopOf="@+id/main_app_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:srcCompat="@drawable/logo_apps" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_app_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="60dp"
+        android:text="@string/app_name"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/main_landing_text"
+        app:layout_constraintEnd_toEndOf="@id/main_logo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/main_logo"
+        app:layout_constraintTop_toBottomOf="@+id/main_logo"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/main_landing_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10sp"
+        android:text="@string/landing_text"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/main_start_button"
+        app:layout_constraintEnd_toEndOf="@id/main_app_name"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/main_app_name"
+        app:layout_constraintTop_toBottomOf="@+id/main_app_name"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/main_start_button"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginBottom="70dp"
+        android:text="@string/button_start"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@id/main_landing_text"
+        app:layout_constraintStart_toStartOf="@id/main_landing_text"
+        app:layout_constraintTop_toBottomOf="@+id/main_landing_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

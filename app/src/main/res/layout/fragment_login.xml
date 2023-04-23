@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.LoginFragment">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/loginLogo"
+        android:layout_width="70dp"
+        android:layout_height="102dp"
+        android:src="@drawable/logo_apps"
+        app:layout_constraintBottom_toTopOf="@+id/loginLabelEmail"
+        app:layout_constraintEnd_toStartOf="@+id/loginAppName"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/loginAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/app_name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/loginLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/loginLogo"
+        app:layout_constraintTop_toTopOf="@id/loginLogo" />
+
+    <TextView
+        android:id="@+id/loginSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/app_slogan"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@id/loginAppName"
+        app:layout_constraintStart_toStartOf="@id/loginLogo"
+        app:layout_constraintTop_toBottomOf="@id/loginLogo"
+        tools:ignore="SmallSp" />
+
+
+    <TextView
+        android:id="@+id/loginLabelEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/label_email"
+        app:layout_constraintBottom_toTopOf="@+id/loginTextFieldEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginLogo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginTextFieldEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/input_email"
+        app:layout_constraintBottom_toTopOf="@+id/loginLabelPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/loginLabelEmail"
+        app:layout_constraintTop_toBottomOf="@+id/loginLabelEmail">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginTextInputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/loginLabelPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/label_password"
+        app:layout_constraintBottom_toTopOf="@+id/loginTextFieldPassword"
+        app:layout_constraintStart_toStartOf="@+id/loginLabelEmail"
+        app:layout_constraintTop_toBottomOf="@+id/loginTextFieldEmail" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/loginTextFieldPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:hint="@string/input_password"
+        app:layout_constraintBottom_toTopOf="@+id/loginButtonLogin"
+        app:layout_constraintEnd_toEndOf="@+id/loginTextFieldEmail"
+        app:layout_constraintStart_toStartOf="@+id/loginTextFieldEmail"
+        app:layout_constraintTop_toBottomOf="@+id/loginLabelPassword">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/loginTextInputPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loginButtonLogin"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/login"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/loginLabelAccount"
+        app:layout_constraintEnd_toEndOf="@+id/loginTextFieldPassword"
+        app:layout_constraintStart_toStartOf="@+id/loginTextFieldPassword"
+        app:layout_constraintTop_toBottomOf="@+id/loginTextFieldPassword" />
+
+    <TextView
+        android:id="@+id/loginLabelAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/label_account_regist"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loginLabelLogin"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/loginButtonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/loginButtonLogin" />
+
+    <TextView
+        android:id="@+id/loginLabelLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/register"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/loginLabelAccount"
+        app:layout_constraintEnd_toEndOf="@+id/loginButtonLogin"
+        app:layout_constraintStart_toEndOf="@+id/loginLabelAccount"
+        app:layout_constraintTop_toTopOf="@id/loginLabelAccount" />
+
+    <ProgressBar
+        android:id="@+id/loadingLogin"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="invisible"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
