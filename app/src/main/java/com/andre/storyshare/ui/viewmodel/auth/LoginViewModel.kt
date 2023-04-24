@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import com.andre.storyshare.data.model.LoginResponse
 import com.andre.storyshare.data.model.LoginUser
 import com.andre.storyshare.data.remote.api.ApiConfig
+import com.andre.storyshare.data.remote.repository.DicodingApiRepository
 import com.andre.storyshare.datastore.DataStoreManager
 import com.andre.storyshare.datastore.DataStoreSingleton
 import kotlinx.coroutines.CoroutineScope
@@ -17,6 +18,8 @@ import kotlinx.coroutines.launch
 import kotlin.Exception
 
 class LoginViewModel : ViewModel(), CoroutineScope by MainScope() {
+    private val repository = DicodingApiRepository(ApiConfig.getInstance().getService())
+
     private val _isError = MutableLiveData<Boolean>()
     val isError: LiveData<Boolean> = _isError
 
@@ -37,8 +40,7 @@ class LoginViewModel : ViewModel(), CoroutineScope by MainScope() {
         launch {
             try{
                 _isLoading.value = true
-                val service = ApiConfig.getInstance().getService()
-                val response = service.loginUser(user)
+                val response = repository.login(user)
                 _isSuccessLogin.value = response.error
                 dataStoreManager.saveLoginResult(response.loginResult)
                 _message.value = response.message

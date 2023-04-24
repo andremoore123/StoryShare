@@ -5,12 +5,15 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.andre.storyshare.data.model.RegistUser
 import com.andre.storyshare.data.remote.api.ApiConfig
+import com.andre.storyshare.data.remote.repository.DicodingApiRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
 class RegisterViewModel : ViewModel(), CoroutineScope by MainScope() {
+    private val repository = DicodingApiRepository(ApiConfig.getInstance().getService())
+
     private val _isError = MutableLiveData<Boolean>()
     val isError: LiveData<Boolean> = _isError
 
@@ -29,8 +32,7 @@ class RegisterViewModel : ViewModel(), CoroutineScope by MainScope() {
         launch {
             _isLoading.value = true
             try{
-                val service = ApiConfig.getInstance().getService()
-                val response = service.registUser(user)
+                val response = repository.register(user)
                 _message.value = response.message
                 _isSuccess.value = true
             } catch (e: Exception){
