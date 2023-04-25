@@ -11,21 +11,28 @@ import kotlinx.coroutines.flow.map
 
 
 class DataStoreManager(private val dataStore: DataStore<Preferences>) {
-    private lateinit var loginResult: LoginResponse
     companion object {
         val LOGIN_RESULT_KEY = stringPreferencesKey("login_result_key")
+        val NAME_USER = stringPreferencesKey("login_result_name")
     }
 
     suspend fun saveLoginResult(loginResult: LoginResponse) {
-        this@DataStoreManager.loginResult = loginResult
         dataStore.edit { preferences ->
             preferences[LOGIN_RESULT_KEY] = loginResult.token // save the LoginResult object
+            preferences[NAME_USER] = loginResult.name // save the LoginResult object
         }
     }
 
     suspend fun getToken(): String {
         val data =  dataStore.data.map { preferences ->
             preferences[LOGIN_RESULT_KEY] ?: ""
+        }
+        return data.first()
+    }
+
+    suspend fun getName(): String {
+        val data =  dataStore.data.map { preferences ->
+            preferences[NAME_USER] ?: ""
         }
         return data.first()
     }

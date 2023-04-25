@@ -16,10 +16,9 @@ import androidx.navigation.fragment.findNavController
 import com.andre.storyshare.R
 import com.andre.storyshare.data.model.LoginUser
 import com.andre.storyshare.databinding.FragmentLoginBinding
-import com.andre.storyshare.ui.home.HomeActivity
+import com.andre.storyshare.ui.main.HomeActivity
 import com.andre.storyshare.ui.viewmodel.ViewModelFactory
 import com.andre.storyshare.ui.viewmodel.auth.LoginViewModel
-import java.lang.Exception
 
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
@@ -50,20 +49,15 @@ class LoginFragment : Fragment() {
         val factory = ViewModelFactory.getInstance()
         viewModel = ViewModelProvider(this, factory)[LoginViewModel::class.java]
 
-        viewModel.isError.observe(viewLifecycleOwner){
-            if (it){
-                showMessage(requireContext(), viewModel.message.value.toString())
-            }
-            Log.d("ErrorMessage", viewModel.message.value.toString())
+        viewModel.message.observe(viewLifecycleOwner){
+            showMessage(requireContext(), it)
         }
 
         viewModel.isSuccessLogin.observe(viewLifecycleOwner){
-            if (!it){
+            if (it){
                 val intent = Intent(requireActivity(), HomeActivity::class.java)
                 startActivity(intent)
                 requireActivity().finish()
-            } else {
-                showMessage(requireContext(), viewModel.message.value.toString())
             }
         }
 

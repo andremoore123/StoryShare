@@ -16,4 +16,13 @@
     <string name="label_account_regist">Don\'t have an account?</string>
     <string name="success_register">Registration Success, please login</string>
     <string name="failed_register">Name, email, or password can\'t be empty</string>
+    <string name="label_home">Home</string>
+    <string name="label_post">Post</string>
+    <string name="label_profile">Profile</string>
+    <string name="post_headings">Post a Picture!</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="label_description">Description</string>
+    <string name="post">Post</string>
+    <string name="logout">Logout</string>
 </resources>

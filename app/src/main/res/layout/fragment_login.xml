@@ -97,7 +97,7 @@
         app:layout_constraintStart_toStartOf="@+id/loginTextFieldEmail"
         app:layout_constraintTop_toBottomOf="@+id/loginLabelPassword">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.andre.storyshare.ui.auth.PasswordEditText
             android:id="@+id/loginTextInputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

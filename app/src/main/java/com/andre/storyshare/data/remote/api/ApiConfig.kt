@@ -14,14 +14,8 @@ class ApiConfig private constructor() {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
-        val authInterceptor = Interceptor { chain ->
-            val request = chain.request().newBuilder()
-                .build()
-            chain.proceed(request)
-        }
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
-            .addInterceptor(authInterceptor)
             .build()
 
         val retrofit = Retrofit.Builder()

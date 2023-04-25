@@ -51,8 +51,8 @@ class RegisterFragment : Fragment() {
             showLoading(it)
         }
 
-        viewModel.isError.observe(viewLifecycleOwner){
-            showMessage(requireContext(), viewModel.message.value.toString())
+        viewModel.message.observe(viewLifecycleOwner){
+            showMessage(requireContext(), it)
         }
 
         viewModel.isSuccess.observe(viewLifecycleOwner){
