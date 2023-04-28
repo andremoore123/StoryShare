@@ -145,7 +145,7 @@ class PostFragment : Fragment() {
                 myFile?.let { file ->
                         rotateFile(file, isBackCamera)
                         val fileReduced = viewModel.reduceFileImage(file)
-                        photo = fileReduced.toUri()
+                    photo = fileReduced.toUri()
                         binding.postPicture.setImageBitmap(BitmapFactory.decodeFile(file.path))
                 }
             }

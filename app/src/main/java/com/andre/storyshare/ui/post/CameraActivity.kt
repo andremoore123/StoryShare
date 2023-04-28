@@ -1,6 +1,5 @@
 package com.andre.storyshare.ui.post
 
-import android.Manifest
 import android.app.Application
 import android.content.Intent
 import android.os.Bundle
