@@ -20,6 +20,7 @@ import java.util.Locale
 class PostRecyclerViewAdapter(
     private val context: Context,
     private var dataStoryList: List<DataStory>,
+    private val onClickListener: (DataStory) -> Unit
 ) : RecyclerView.Adapter<PostRecyclerViewAdapter.StoriesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoriesViewHolder {
@@ -31,6 +32,8 @@ class PostRecyclerViewAdapter(
     override fun onBindViewHolder(holder: StoriesViewHolder, position: Int) {
         val stories = dataStoryList[position]
         holder.bind(stories)
+        holder.itemView.setOnClickListener { onClickListener(stories) }
+
     }
 
     override fun getItemCount(): Int {

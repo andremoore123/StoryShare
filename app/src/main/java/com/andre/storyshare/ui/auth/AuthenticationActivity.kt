@@ -1,7 +1,7 @@
 package com.andre.storyshare.ui.auth
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.andre.storyshare.databinding.ActivityAuthenticationBinding
 
 private lateinit var binding: ActivityAuthenticationBinding

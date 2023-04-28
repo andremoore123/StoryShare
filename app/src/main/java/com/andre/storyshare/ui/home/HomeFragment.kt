@@ -1,21 +1,25 @@
 package com.andre.storyshare.ui.home
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.annotation.RequiresApi
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.andre.storyshare.databinding.FragmentHomeBinding
 import com.andre.storyshare.ui.adapter.PostRecyclerViewAdapter
+import com.andre.storyshare.ui.detail.DetailActivity
 import com.andre.storyshare.ui.viewmodel.ViewModelFactory
 import com.andre.storyshare.ui.viewmodel.home.HomeViewModel
+@RequiresApi(Build.VERSION_CODES.O)
 
 class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
@@ -32,7 +36,11 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         loadingBar = binding.homeLoadingBar
         homeRecyclerView = binding.homeRecyclerView
-        recyclerViewAdapter = PostRecyclerViewAdapter(requireContext(), emptyList())
+        recyclerViewAdapter = PostRecyclerViewAdapter(requireContext(), emptyList()) {
+            val intent = Intent(requireContext(), DetailActivity::class.java)
+            intent.putExtra("story", it)
+            startActivity(intent)
+        }
         homeRecyclerView.adapter = recyclerViewAdapter
         homeRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         return binding.root

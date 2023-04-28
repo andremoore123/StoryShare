@@ -1,16 +1,15 @@
 package com.andre.storyshare.ui.auth
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.andre.storyshare.R
 import com.andre.storyshare.data.model.RegistUser
@@ -67,7 +66,9 @@ class RegisterFragment : Fragment() {
             val password = binding.registerInputPassword.text.toString()
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()){
                 viewModel.register(RegistUser(name, email, password))
-            } else {
+            } else if (password.length < 6) {
+                showMessage(requireContext(), "Password length is less than 6 characters")
+            }else {
                 showMessage(requireContext(), R.string.failed_register.toString())
             }
         }

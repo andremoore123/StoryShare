@@ -1,25 +1,15 @@
 package com.andre.storyshare.ui.viewmodel.auth
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.andre.storyshare.data.model.AuthResponse
-import com.andre.storyshare.data.model.LoginUser
 import com.andre.storyshare.data.model.RegistUser
 import com.andre.storyshare.data.remote.api.ApiConfig
 import com.andre.storyshare.data.remote.repository.DicodingApiRepository
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.json.JSONObject
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.lang.Exception
 
 class RegisterViewModel : ViewModel(), CoroutineScope by MainScope() {
     private val repository = DicodingApiRepository(ApiConfig.getInstance().getService())

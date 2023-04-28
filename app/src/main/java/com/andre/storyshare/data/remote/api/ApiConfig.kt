@@ -1,7 +1,6 @@
 package com.andre.storyshare.data.remote.api
 
 import com.andre.storyshare.data.remote.repository.DicodingApiService
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

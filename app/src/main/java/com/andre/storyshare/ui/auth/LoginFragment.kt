@@ -2,15 +2,14 @@ package com.andre.storyshare.ui.auth
 
 import android.content.Context
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.andre.storyshare.R
@@ -68,7 +67,9 @@ class LoginFragment : Fragment() {
         binding.loginButtonLogin.setOnClickListener {
             if (binding.loginTextInputEmail.text.toString().isEmpty() || binding.loginTextInputPassword.text.toString().isEmpty()){
                 showMessage(requireContext(), "Email or Password field can't be empty!")
-            } else {
+            } else if (binding.loginTextInputPassword.text.toString().length < 6) {
+                showMessage(requireContext(), "Password length is less than 6 characters")
+            } else{
                 user = LoginUser(
                     binding.loginTextInputEmail.text.toString(),
                     binding.loginTextInputPassword.text.toString()

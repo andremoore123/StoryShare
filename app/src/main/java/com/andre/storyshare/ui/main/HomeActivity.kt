@@ -1,14 +1,10 @@
 package com.andre.storyshare.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.lifecycle.ViewModelProvider
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.andre.storyshare.R
 import com.andre.storyshare.databinding.ActivityHomeBinding
-import com.andre.storyshare.ui.viewmodel.ViewModelFactory
-import com.andre.storyshare.ui.viewmodel.home.HomeViewModel
 
 private lateinit var binding: ActivityHomeBinding
 class HomeActivity : AppCompatActivity() {
@@ -43,4 +39,5 @@ class HomeActivity : AppCompatActivity() {
             }
         }
     }
+
 }

@@ -1,14 +1,13 @@
 package com.andre.storyshare.ui.profile
 
 import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.andre.storyshare.MainActivity
-import com.andre.storyshare.R
 import com.andre.storyshare.databinding.FragmentProfileBinding
 import com.andre.storyshare.ui.viewmodel.ViewModelFactory
 import com.andre.storyshare.ui.viewmodel.profile.ProfileViewModel

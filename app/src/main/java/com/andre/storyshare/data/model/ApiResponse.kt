@@ -1,6 +1,8 @@
 package com.andre.storyshare.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Part
@@ -27,7 +29,7 @@ data class ListStoryData(
     @field:SerializedName("listStory")
     val listStory: List<DataStory>
 )
-
+@Parcelize
 data class DataStory(
     @field:SerializedName("name")
     val name: String,
@@ -41,7 +43,7 @@ data class DataStory(
     val lat: Float,
     @field:SerializedName("lon")
     val lon: Float,
-)
+): Parcelable
 data class RegistUser(
     val name: String,
     val email: String,

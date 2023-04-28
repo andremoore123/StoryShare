@@ -5,7 +5,6 @@ import com.andre.storyshare.data.model.DataStoryUpload
 import com.andre.storyshare.data.model.ListStoryData
 import com.andre.storyshare.data.model.LoginUser
 import com.andre.storyshare.data.model.RegistUser
-import retrofit2.Call
 import retrofit2.Response
 
 
